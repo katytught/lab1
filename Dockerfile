@@ -3,4 +3,4 @@ WORKDIR /app/
 COPY * ./
 RUN chmod 777 *
 RUN ls
-RUN javac -cp "./bin: ./src/antlr-4.9.2-complete.jar" Main.java
+RUN javac -cp "*.class: antlr-4.9.2-complete.jar" Main.java
