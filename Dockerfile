@@ -1,5 +1,5 @@
 FROM openjdk:11
-WORKDIR /app/
-COPY * ./
+COPY . /myapp/
+WORKDIR /myapp/
 ENV CLASSPATH=antlr-4.9.2-complete.jar
 RUN javac *.java
