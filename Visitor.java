@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Visitor extends calcBaseVisitor<Void>{
     public String results="";
     @Override public Void visitCompUnit(calcParser.CompUnitContext ctx) {
@@ -27,15 +29,21 @@ public class Visitor extends calcBaseVisitor<Void>{
         if (s.charAt(0)=='0'){
             if(s.charAt(1)=='x'||s.charAt(1)=='X'){
                 int len = s.length();
-                for (int i=len;i>2;i--){
-                    res=16*res+ (int) s.charAt(i - 1)-48;
+                s = s.toLowerCase();
+                for (int i=2;i<len;i++){
+                    if(s.charAt(i)>='0'&&s.charAt(i)<='9'){
+                        res=16*res+ (int) s.charAt(i)-48;
+                    }
+                    else if(s.charAt(i)>='a'&&s.charAt(i)<='z'){
+                        res=16*res +10+ ((int) s.charAt(i)-'a');
+                    }
                 }
                 results+=res;
             }
             else {
                 int len = s.length();
-                for(int i=len;i>1;i--){
-                    res=8*res+ (int) s.charAt(i - 1)-48;
+                for(int i=1;i<len;i++){
+                    res=8*res+ (int) s.charAt(i)-48;
                 }
                 results+=res;
             }
