@@ -5,7 +5,7 @@ public class Visitor extends calcBaseVisitor<Void>{
     }
     @Override public Void visitFuncDef(calcParser.FuncDefContext ctx) {
         if(ctx.FuncType().getText().equals("int")){
-            results+="define dso_local";
+            results+="define dso_local ";
         }
         if(ctx.Ident().getText().equals("main")){
             results+="i32 @main";
