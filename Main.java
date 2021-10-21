@@ -20,7 +20,7 @@ public class Main {
         boolean hasElseSign = false;
         try{
             while ((str = bufferedreader.readLine()) != null) {
-                System.out.println(str);
+                StringBuilder substring = new StringBuilder();
                 if (0 != str.length()) {
                     if(hasElseSign == false){
                         for(index = 0;index < str.length();index++){
@@ -32,11 +32,25 @@ public class Main {
                                 }
                                 if(str.charAt(index+1)=='*'){
                                     hasElseSign = true;
-                                    bw.write(str.substring(0,index));
-                                    bw.newLine();
-                                    bw.flush();
-                                    break;
+//                                    bw.write(str.substring(0,index));
+//                                    bw.newLine();
+//                                    bw.flush();
+                                    for(int dex = index;dex<str.length();dex++){
+                                        ch = str.charAt(dex);
+                                        if(ch!='*') continue;
+                                        else {
+                                            if(str.charAt(dex+1)!='/') continue;
+                                            else {
+                                                hasElseSign = false;
+                                                index = dex;
+                                            }
+                                        }
+                                    }
+//                                    break;
                                 }
+                            }
+                            else {
+                                substring.append(ch);
                             }
                         }
                         if(hasElseSign) continue;
@@ -51,7 +65,7 @@ public class Main {
                         }
                         continue;
                     }
-                    bw.write(str);
+                    bw.write(substring.toString());
                     bw.newLine();
                     bw.flush();
                 }
