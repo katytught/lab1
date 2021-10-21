@@ -22,6 +22,7 @@ public class Main {
             while ((str = bufferedreader.readLine()) != null) {
                 StringBuilder substring = new StringBuilder();
                 if (0 != str.length()) {
+                    System.out.println(str);
                     if(hasElseSign == false){
                         for(index = 0;index < str.length();index++){
                             ch = str.charAt(index);
