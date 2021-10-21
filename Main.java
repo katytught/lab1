@@ -22,7 +22,6 @@ public class Main {
             while ((str = bufferedreader.readLine()) != null) {
                 StringBuilder substring = new StringBuilder();
                 if (0 != str.length()) {
-                    System.out.println(str);
                     if(hasElseSign == false){
                         for(index = 0;index < str.length();index++){
                             ch = str.charAt(index);
@@ -40,11 +39,16 @@ public class Main {
                                         ch = str.charAt(dex);
                                         if(ch!='*') continue;
                                         else {
-                                            if(dex+1>=str.length()) continue;
+                                            if(dex+1>=str.length()) {
+                                                bw.write(substring.toString());
+                                                bw.newLine();
+                                                bw.flush();
+                                                continue;
+                                            };
                                             if(str.charAt(dex+1)!='/') continue;
                                             else {
                                                 hasElseSign = false;
-                                                index = dex;
+                                                index = dex+1;
                                             }
                                         }
                                     }
