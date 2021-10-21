@@ -39,6 +39,7 @@ public class Main {
                                         ch = str.charAt(dex);
                                         if(ch!='*') continue;
                                         else {
+                                            if(dex+1>=str.length()) continue;
                                             if(str.charAt(dex+1)!='/') continue;
                                             else {
                                                 hasElseSign = false;
