@@ -20,6 +20,7 @@ public class Main {
         boolean hasElseSign = false;
         try{
             while ((str = bufferedreader.readLine()) != null) {
+                System.out.println(str);
                 if (0 != str.length()) {
                     if(hasElseSign == false){
                         for(index = 0;index < str.length();index++){
